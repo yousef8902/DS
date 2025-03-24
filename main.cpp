@@ -15,7 +15,7 @@ public:
         arr = new T[capacity];
     }
 
-    T& operator[](int index) {
+     T& operator[](int index) const{
         if (index < 0 || index >= length) {
             throw out_of_range("Index out of bounds");
         }
@@ -68,7 +68,7 @@ public:
 
     friend ostream& operator<<(ostream& out, const DynamicArray& d) {
         for (int i = 0; i < d.length; i++) {
-            out << d.arr[i] << " ";
+            out << d[i] << " ";
         }
         return out;
     }
@@ -87,5 +87,6 @@ int main() {
     cout << "Array: " << d << endl;
     d.remove(4);
     cout << "After Removing 4: " << d << endl;
+    cout << d[1];
     return 0;
 }
